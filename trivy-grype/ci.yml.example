@@ -1,0 +1,7 @@
+name: image-scan
+on: [pull_request]
+jobs:
+  scan:
+    uses: adrianrevilla009/lab-workflows/.github/workflows/image-scan.yml@main
+    with:
+      dockerfile: trivy-grype/Dockerfile

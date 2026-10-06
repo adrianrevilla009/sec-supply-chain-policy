@@ -1,0 +1,8 @@
+# What a consumer must check before trusting an artifact (checked offline by check.py).
+require:
+  sbom_format: cyclonedx-json
+  signature: cosign-blob
+  identity_pinned: true
+tools:
+  syft: v1.14.0
+  cosign: v2.4.1

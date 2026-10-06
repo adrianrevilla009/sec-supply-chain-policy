@@ -1,0 +1,11 @@
+rules:
+  - id: orders-sql-string-concat
+    languages: [java]
+    severity: ERROR
+    message: SQL built by string concatenation; use a PreparedStatement.
+    pattern: $STMT.executeQuery("..." + $X)
+  - id: orders-hardcoded-password
+    languages: [java]
+    severity: ERROR
+    message: Hardcoded password literal.
+    pattern: String password = "...";

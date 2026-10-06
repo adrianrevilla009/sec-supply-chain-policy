@@ -1,0 +1,19 @@
+name: codeql
+on:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+permissions:
+  contents: read
+  security-events: write
+jobs:
+  analyze:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: java-kotlin
+          queries: security-extended
+      - uses: github/codeql-action/autobuild@v3
+      - uses: github/codeql-action/analyze@v3

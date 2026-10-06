@@ -1,0 +1,19 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-signed-pinned-images
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+    - name: no-latest-tag
+      match:
+        any:
+          - resources:
+              kinds: [Pod]
+      validate:
+        message: "Images must not use the latest tag."
+        pattern:
+          spec:
+            containers:
+              - image: "!*:latest"

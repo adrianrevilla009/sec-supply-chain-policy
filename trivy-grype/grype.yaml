@@ -1,0 +1,4 @@
+# Grype gate: second opinion with a different vulnerability database.
+fail-on-severity: high
+only-fixed: true
+output: table

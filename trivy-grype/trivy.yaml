@@ -1,0 +1,12 @@
+# Trivy gate: fail the build on HIGH or CRITICAL findings that have a fix.
+severity:
+  - HIGH
+  - CRITICAL
+exit-code: 1
+ignore-unfixed: true
+ignorefile: .trivyignore
+scan:
+  scanners:
+    - vuln
+    - secret
+    - misconfig

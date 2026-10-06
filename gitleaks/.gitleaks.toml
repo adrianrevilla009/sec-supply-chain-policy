@@ -1,0 +1,13 @@
+title = "orders gitleaks"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "orders-internal-token"
+description = "Internal Orders API token"
+regex = '''ordtok_[A-Za-z0-9]{24}'''
+keywords = ["ordtok_"]
+
+[allowlist]
+paths = ['''.*\.md$''']
